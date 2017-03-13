@@ -16,7 +16,6 @@ namespace AbstractAsynchronousUpdate
         public AbstractAsynchronousUpdate()
         {
             ThreadIsRunning = false;
-            UpdateThread = new Thread(new ThreadStart(LoopUpdate));
         }
 
         /// <summary>
@@ -37,6 +36,7 @@ namespace AbstractAsynchronousUpdate
         {
             if (!ThreadIsRunning)
             {
+				UpdateThread = new Thread(new ThreadStart(LoopUpdate));
                 UpdateThread.Start();
                 ThreadIsRunning = true;
             }
